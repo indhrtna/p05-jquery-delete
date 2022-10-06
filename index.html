@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #a5b4ff;
+        }
+    
+    
+        h1{
+            text-align: center;
+            font-family: 'Segoe UI';
+            color: #293462;
+        }
+    
+        p{
+            text-align: center;
+            font-family: 'Segoe UI';
+            color: #141724;
+        }
+    
+        table{
+           width: 50%;
+           border-collapse: collapse;
+           font-family: Arial, Helvetica, sans-serif;
+        }
+    
+       .table1{
+           margin-top: auto;
+           margin-left: auto;
+           display: flex;
+           margin-top: 100px;
+           position: relative;
+           align-items: center;
+           flex-direction: column;
+       }
+    
+       td{
+        border-collapse: collapse;
+        text-align: left;
+        padding: 7px;
+        cursor: pointer;
+        transition: 0,2s;
+       }
+       td:hover{
+        color: #0d0b2e;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       }
+       th{
+        border-collapse: collapse;
+        text-align: center;
+        padding: 7px;
+       }
+       
+    
+       tr{
+        border: 1;
+       }
+      
+       tr:nth-child(even) {
+       background-color: #7cb3f3;
+       }
+    </style>
+</head>
+<body>
+    <div class = table1 id="div1">
+
+        <h1>Top 5 My Best Friends</h1>
+        <p>Indah Ratna Ningsih<br>41215909</p>
+        
+        <table border="5">
+            <tbody>
+            
+                <tr class="judulTable">
+                    <th>No</th>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Alamat</th>
+                    <th>Aksi</th>
+                </tr>
+                <tr id="row_1">
+                    <td>1</td>
+                    <td>41215998</td>
+                    <td class="nama" id="nama_1">Nur Anindya Putri Haryandini</td>
+                    <td class="alamat" id="alamat_1">Sunyaragi</td>
+                    <td class="hapus" id="hapus_1">Hapus</td>
+                </tr>
+                <tr id="row_2">
+                    <td>2</td>
+                    <td>41215658</td>
+                    <td class="nama" id="nama_2">Ike Suryani Dewi</td>
+                    <td class="alamat" id="alamat_2">Pamengkang</td>
+                    <td class="hapus" id="hapus_2">Hapus</td>
+                </tr>
+                <tr id="row_3">
+                    <td>3</td>
+                    <td>41215488</td>
+                    <td class="nama" id="nama_3">Hilda Novianti</td>
+                    <td class="alamat" id="alamat_3">Griya Cempaka Arum</td>
+                    <td class="hapus" id="hapus_3">Hapus</td>
+                </tr>
+                <tr id="row_4">
+                    <td>4</td>
+                    <td>41215407</td>
+                    <td class="nama" id="nama_4">Mifta Almaripat</td>
+                    <td class="alamat" id="alamat_4">Banjarwangunan</td>
+                    <td class="hapus" id="hapus_4">Hapus</td>
+                </tr>
+                <tr id="row_5">
+                    <td>5</td>
+                    <td>41215488</td>
+                    <td class="nama" id="nama_5">Muhammad Enricco Rizqy</td>
+                    <td class="alamat" id="alamat_5">Klayan</td>
+                    <td class="hapus" id="hapus_5">Hapus</td>
+                </tr>
+            </tbody>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+       <script>
+        $(document).ready(function(){
+        $('.nama').click(function(){
+            let nama_isi = $(this).text();
+            let nama_isi2 = prompt('Apakah anda ingin mengubahnya?:',nama_isi);
+            if(!nama_isi2) return;
+        
+
+            $(this).text(nama_isi2);
+        })
+
+        $('.alamat').click(function(){
+            let alamat1 = $(this).text();
+            let alamat2 = prompt('Apakah anda ingin mengubahnya?:',alamat1);
+            if(!alamat2) return;
+        
+            $(this).text(alamat2);
+         })
+
+        $('.hapus').click(function(){
+            let betul = confirm('Anda yakin ingin menghapusnya?');
+            if(!betul) return;
+            let id = $(this).prop('id')
+            let rid = id.split('_');
+            let baris_ke = rid[1];
+            $('#row_'+baris_ke).slideUp()
+        })
+
+        })	
+       </script>
+</body>
+</html>
